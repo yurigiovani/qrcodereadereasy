@@ -1,0 +1,23 @@
+<div class="md-toolbar-tools">
+    <h2>{{appName}}</h2>
+    <span flex></span>
+    <md-menu>
+        <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
+            <md-icon md-menu-origin>more_vert</md-icon>
+        </md-button>
+        <md-menu-content width="2">
+            <md-menu-item>
+                <md-button ng-href="#/scan" aria-label="scan">
+                    <md-icon>camera</md-icon>
+                    <span md-menu-align-target>Scan</span>
+                </md-button>
+            </md-menu-item>
+            <md-menu-item>
+                <md-button ng-href="#/history" aria-label="history">
+                    <md-icon>history</md-icon>
+                    <span md-menu-align-target>History</span>
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+</div>

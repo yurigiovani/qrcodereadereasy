@@ -1,4 +1,5 @@
 node_modules/
+app/resouces/publish/
 cordova/hooks/
 cordova/platforms/
 cordova/plugins/

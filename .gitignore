@@ -1,7 +1,4 @@
-node_modules/
+/node_modules
+cordova/*/*
 app/resouces/publish/
-cordova/hooks/
-cordova/platforms/
-cordova/plugins/
-cordova/res/
-cordova/www/
+public/js/main.js

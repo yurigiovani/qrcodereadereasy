@@ -16,3 +16,5 @@ To build an app with cordova
 
 5- The images about the app are in app/resources/ icon ad splashscree
 6- run >> gulp cordova
+
+See app in the Google Play: https://play.google.com/store/apps/details?id=br.com.qrcodereadereasy

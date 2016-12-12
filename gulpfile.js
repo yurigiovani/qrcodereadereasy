@@ -1,4 +1,5 @@
 const 	gulp = require('gulp'),
+		concat = require('gulp-concat'),
 		uglify = require('gulp-uglify'),
 		gls = require('gulp-live-server'),
 		browserify = require('gulp-browserify'),
@@ -8,9 +9,16 @@ gulp.task('default', ['browserify', 'css', 'watch', 'serve', 'cordova']);
 
 gulp.task('css', function() {
 
-	return gulp.src([
-		'node_modules/angular-material/angular-material.css'
+	gulp.src([
+		'app/resources/css/font-material-icons/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2'
 	])
+	.pipe(gulp.dest('public/css'));
+
+	return gulp.src([
+		'node_modules/angular-material/angular-material.css',
+		'app/resources/css/font-material-icons/font-material-icons.css'
+	])
+	.pipe(concat('app.css'))
 	.pipe(gulp.dest('public/css'));
 
 });

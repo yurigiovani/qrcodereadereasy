@@ -1,6 +1,6 @@
 {
   "name": "qrcodereadereasy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "title": "QRCode Reader Easy",
   "devDependencies": {
     "angular": "^1.5.2",

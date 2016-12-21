@@ -8,7 +8,7 @@ module.exports = function($scope, ScanService, ActionsService, $http, $filter, c
 
 	// ScanService.save({
 	// 	"format": "QR_CODE",
-	// 	"text": "BEGIN:VEVENT SUMMARY:My Event Name LOCATION:Event Location DTSTART:20110505T160000Z DTEND:20110505T170000Z END:VEVENT"
+	// 	"text": "BEGIN:VCARD VERSION:3.0 N:HABIB'S DELIVERY ORG:HABIB'S URL:http://habibs.com.br TEL:3003-2828 END:VCARD"
 	// });
 
 	$scope.showDetails = function(scan) {
@@ -17,7 +17,8 @@ module.exports = function($scope, ScanService, ActionsService, $http, $filter, c
 		$mdBottomSheet.show({
 			templateUrl: 'views/history/detail.html',
 			scope: $scope,
-			preserveScope: true
+			preserveScope: true,
+			disableParentScroll: true,
 		})
 		.then(function(clickedItem) {
 			// console.log(clickedItem);

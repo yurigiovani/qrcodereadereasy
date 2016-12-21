@@ -16,7 +16,8 @@ gulp.task('css', function() {
 
 	return gulp.src([
 		'node_modules/angular-material/angular-material.css',
-		'app/resources/css/font-material-icons/font-material-icons.css'
+		'app/resources/css/font-material-icons/font-material-icons.css',
+		'app/resources/css/style.css'
 	])
 	.pipe(concat('app.css'))
 	.pipe(gulp.dest('public/css'));

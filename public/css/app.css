@@ -23884,3 +23884,6 @@ md-tooltip {
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
 }
+.fixed {
+	position: fixed !important;
+}

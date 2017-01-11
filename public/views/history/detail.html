@@ -5,6 +5,13 @@
     <md-content layout-padding ng-bind-html="toTrusted(selected.text | adjust:selected.type)"></md-content>
     <md-divider></md-divider>
     <md-list>
+        <md-list-item>
+            <md-button class="md-list-item-content" ng-click="changeName(selected);">
+                <md-icon>mode_edit</md-icon>
+                <span class="md-inline-list-icon-label">Change name</span>
+            </md-button>
+        </md-list-item>
+        
         <md-list-item ng-if="selected.type == 'Weblink'">
             <md-button class="md-list-item-content" ng-click="searchWeb(selected);">
                 <md-icon>http</md-icon>

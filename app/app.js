@@ -26,7 +26,7 @@ angular.module('app')
 		.config(['$routeProvider', routeConfig]);
 
 angular.module('app')
-		.service('ScanService', ['$mdToast', '$filter', ScanService])
+		.service('ScanService', ['$mdToast', '$mdDialog', '$filter', ScanService])
 		.service('ActionsService', ['$cordovaAppAvailability', '$cordovaInAppBrowser', ActionsService]);
 
 angular.module('app')

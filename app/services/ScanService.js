@@ -1,4 +1,4 @@
-module.exports = function($mdToast, $filter) {
+module.exports = function($mdToast, $mdDialog, $filter) {
 	const types = {
 		calendar: {
 			name: "Calendar",
@@ -55,25 +55,30 @@ module.exports = function($mdToast, $filter) {
 		let message = 'Scan cancelled!';
 
 		if(! scan.cancelled) {
+			scan.name = '';
 			scan.type = this.getType(scan.text, 'name');
 			scan.icon = this.getType(scan.text, 'icon');
 			scan.date = new Date();
 
-			this.records.push(scan);
+			const index = this.records.push(scan);
 
 			this._saveRecords();
 
 			message = 'Scanned successfully!';
+
+			this.dialogChangeName(this.records[index-1]);
 		}
 
-		$mdToast.show(
-		    $mdToast.simple()
-		      .textContent(message)
-		      .position('top')
-		      .hideDelay(1500)
-	  	);
+		this.notify(message);
 	};
+	this.update = function(newScan) {
+		const index = this.records.indexOf(newScan);
+		this.records[index] = newScan;
 
+		this._saveRecords();
+
+		this.notify('Updated successfully!');
+	};
 	this.delete = function(scan) {
 		const index = this.records.indexOf(scan);
 		let message = 'Could not delete the record.'
@@ -84,12 +89,7 @@ module.exports = function($mdToast, $filter) {
 			this._saveRecords();
 		}
 
-		$mdToast.show(
-		    $mdToast.simple()
-		      .textContent(message)
-		      .position('top')
-		      .hideDelay(1500)
-	  	);
+		this.notify(message);
 	};
 
 	this.getContent = function(text, node, type) {
@@ -145,5 +145,33 @@ module.exports = function($mdToast, $filter) {
 				return types.weblink[node];
 			}
 		}
+	};
+
+	this.dialogChangeName = function(scan) {
+		const 	that = this,
+				confirm = $mdDialog.prompt()
+									.title('Change name')
+									.textContent('Type the new name you wish.')
+									.placeholder('Name')
+									.ariaLabel('Name')
+									.initialValue(scan.name)
+									.ok('Done')
+									.cancel('Cancel');
+
+		$mdDialog.show(confirm).then(function(result) {
+			scan.name = result;
+			that.update(scan);
+		}, function() {
+			// error
+		});
+	};
+
+	this.notify = function(message) {
+		$mdToast.show(
+			$mdToast.simple()
+					.textContent(message)
+					.position('bottom')
+					.hideDelay(1200)
+		);
 	};
 };

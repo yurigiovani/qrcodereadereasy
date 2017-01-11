@@ -7,9 +7,9 @@
 			<md-list-item ng-repeat="scan in scans | orderBy: date : true" class="md-3-line" ng-click="showDetails(scan)">
 				<md-icon>{{scan.icon}}</md-icon>
 				<div class="md-list-item-text">
-					<h3>{{ scan.type }}</h3>
-					<h4>{{ scan.date | date }}</h4>
-					<!-- <p>{{ scan.text | limitTo: 100 }}</p> -->
+					<h3>{{ scan.name ? scan.name : 'Empty' }}</h3>
+					<h4>{{ scan.type }}</h4>
+					<p>{{ scan.date | date }}</p>
 				</div>
 				<md-button class="md-secondary md-icon-button" aria-label="delete scan" ng-click="deleteScan(scan, $event)">
 					<md-icon>clear</md-icon>

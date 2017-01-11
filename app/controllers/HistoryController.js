@@ -51,6 +51,10 @@ module.exports = function($scope, ScanService, ActionsService, $http, $filter, c
 		ActionsService.addEvent(event);
 	};
 
+	$scope.changeName = function(scan) {
+		ScanService.dialogChangeName(scan);
+	};
+
 	$scope.callPhone = function(scan) {
 		ActionsService.openInBrowser(scan.text);
 	};

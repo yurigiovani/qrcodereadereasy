@@ -36,3 +36,7 @@ angular.module('app')
 
 angular.module('app')
 		.filter('adjust', filterAdjustText);
+
+document.addEventListener("deviceready", function() {
+	navigator.splashscreen.hide();
+}, false);
